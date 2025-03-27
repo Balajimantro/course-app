@@ -1,0 +1,26 @@
+<div class="register_container container p-0">
+    <div class="row g-0 register_form_container">
+        <h2>Login Here</h2>
+        <form class="register_form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+            <div class="mb-3 label_container">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your email" [ngClass]="{'is-invalid': loginForm.get('email')?.invalid && loginForm.get('email')?.touched}">
+                <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-danger">
+                    Email is required
+                </div>
+            </div>
+            <div class="mb-3 label_container">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter your password" autocomplete [ngClass]="{'is-invalid': loginForm.get('password')?.invalid && loginForm.get('password')?.touched}">
+                <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.touched)" class="text-danger">
+                    Password is required
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">Login</button>
+         </form>
+
+         <div class="col-12">
+            <div class="login_here">If You don't Have Account <span routerLink="/register">Register Here</span></div>
+         </div>
+    </div>
+</div>

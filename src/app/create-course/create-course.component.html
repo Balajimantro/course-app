@@ -1,0 +1,72 @@
+<div class="row g-0" >
+    <h2 class="title">Create Course</h2>
+    <form id="createForm" class="createCoureceForm_container" [formGroup]="createCoureceForm" (ngSubmit)="onCreateCourse()">
+        <div class="row g-0 createCoureceForm_box">
+            <div class="col-12">
+                <div class="label_container">
+                    <label for="email" class="form-label">className</label>
+                    <input type="email" class="form-control" id="email" formControlName="className" placeholder="Enter your className" [ngClass]="{'is-invalid': createCoureceForm.get('className')?.invalid && createCoureceForm.get('className')?.touched}">
+                    <div *ngIf="createCoureceForm.get('className')?.invalid && createCoureceForm.get('className')?.touched" class="text-danger">
+                        courseName is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="label_container">
+                    <label for="password" class="form-label">subject</label>
+                    <input type="text" class="form-control" id="subject" formControlName="subject" placeholder="Enter your subject" autocomplete [ngClass]="{'is-invalid': createCoureceForm.get('subject')?.invalid && createCoureceForm.get('subject')?.touched}">
+                    <div *ngIf="createCoureceForm.get('subject')?.invalid && (createCoureceForm.get('subject')?.touched || createCoureceForm.get('subject')?.touched)" class="text-danger">
+                        subject is required
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="label_container">
+                    <label for="password" class="form-label">board</label>
+                    <input type="text" class="form-control" id="board" formControlName="board" placeholder="Enter your board" autocomplete [ngClass]="{'is-invalid': createCoureceForm.get('board')?.invalid && createCoureceForm.get('board')?.touched}">
+                    <div *ngIf="createCoureceForm.get('board')?.invalid && (createCoureceForm.get('board')?.touched || createCoureceForm.get('board')?.touched)" class="text-danger">
+                        subject is required
+                    </div>
+                </div>
+            </div>
+            <button *ngIf="editIndex == null" type="submit" class="btn btn-success mt-3">Create Course</button>
+            <div *ngIf="editIndex !== null" class="btn btn-success mt-3" (click)="updateCourse(editIndex)">Update Course</div>
+        </div>
+
+        <div class="text-danger mt-2" style="display: none;" id="noChanges">No Changes Detected</div>
+    </form>
+</div>
+
+<div class="row g-0 mt-5">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Classname</th>
+                <th scope="col">Subject</th>
+                <th scope="col">board</th>
+                <th scope="col">latitude</th>
+                <th scope="col">longitude</th>
+                <th scope="col">UserId</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let course of allCoursesByUser; let i = index">
+                <th scope="row">{{i + 1}}</th>
+                <td>{{course?.className}}</td>
+                <td>{{course?.subject}}</td>
+                <td>{{course?.board}}</td>
+                <td>{{course?.latitude}}</td>
+                <td>{{course?.longitude}}</td>
+                <td>{{course?.createdBy}}</td>
+                <td class="d-flex justify-content-between">
+                    <img src="assets/img/edit.svg" alt="edit icon" width="20px" height="20px" (click)="editCourse(i)" style="cursor: pointer;">
+                    <img src="assets/img/delete.svg" alt="delete icon" width="20px" height="20px" style="cursor: pointer;" (click)="deleteCourse(i)">
+                </td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

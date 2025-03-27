@@ -1,0 +1,229 @@
+.layout_container_fluid_parent {
+    display: flex; 
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.course_sidebar_section {
+    flex-shrink: 0; 
+    transition: 0.75s ease;
+    height: 100vh;
+    border-right: 1px solid #EEEEEE;
+    background-color: #fff;
+    position: sticky;
+    top: 0;
+    width: 15%;
+}
+
+.course_sidebar_container {
+    margin-top: 75px;
+}
+
+.course_sidebar_dash_text, .course_sidebar_create_text {
+    color: #212121;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 0;
+    text-align: center;
+    background-color: #f5f5f5;
+    border-radius: 24px 0 0 24px;
+    border-bottom: 1px solid #EEEEEE;   
+    cursor: pointer;
+}
+
+.course_sidebar_create_text {
+    margin-top: 10px;
+}
+
+.course_sidebar_create_text:hover, .course_sidebar_dash_text:hover {
+    background-color: #e9e5e5;
+}
+
+.active {
+    background-color: #e9e5e5;
+}
+
+.course_right_side_section {
+    flex-grow: 1;
+    /* background-color: red; */
+}
+
+.course_right_side_header_container {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.course_right_side_header_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-bottom: 1px solid #EEEEEE; 
+    box-shadow: 0px 3px 6px 0px #0000000D; 
+    padding: 0px 24px;
+}
+
+.user_details {
+    position: relative;
+}
+
+.user_image {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.user_details_pop {
+    position: absolute;
+    box-shadow: 0px 13px 13px 0px #00000029;
+    border: 1px solid #EEEEEE;
+    border-radius: 3px;
+    padding: 20px 10px;
+    background-color: #ffffff;
+    right: 0;
+    top: 40px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.user_image_pop {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.user_details_pop_name, .user_details_pop_email {
+    color: #666;
+    line-height: 22px;
+    font-size: 16px;
+}
+
+.user_details_pop_buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 5px;
+    width: 100%;
+}
+
+.user_details_pop_views_btn, .user_details_pop_sign_out_btn {
+    background-color: #f5f5f5;
+    flex: 1;
+    text-align: center;
+    border: 0.5px solid #eee;
+    font-size: 14px;
+    font-weight: 500;
+    color: #212121;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.user_details_pop_views_btn:hover, .user_details_pop_sign_out_btn:hover {
+    background-color: #e9e5e5;
+}
+
+.user_details_pop_name > span {
+    color: #212121;
+}
+
+.user_details_pop_views_btn {
+    border-radius: 24px 0px 0px 24px;
+}
+
+.user_details_pop_sign_out_btn {
+    border-radius: 0px 24px 24px 0px;
+}
+
+.course_right_side_body_comtainer {
+    padding: 24px;
+}
+
+.update_profile_container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid #EEEEEE;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0px 3px 6px 0px #0000000D;
+}
+
+.hamber_icon {
+    width: 40px;
+    height: 40px;
+    left: 20px;
+    bottom: 20px;
+    box-shadow: 0px 4px 8px 0px #00000042;
+}
+
+.hamber_router_link {
+    position: fixed;
+    left: 20px;
+    top: 70px;
+    display: grid;
+    gap: 10px;
+    background: #ffffff;
+    box-shadow: 0px 4px 8px 0px #00000042;
+    border-top: 1px solid #EFEFEF;
+    padding: 10px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s ease-in-out;
+}
+
+.course_hamber_menu {
+    padding: 10px;
+}
+
+@media ( max-width: 767px) {
+    .course_sidebar_section {
+        display: none;
+    }
+
+    .hamber_container {
+        display: block;
+    }
+
+    .course_right_side_section {
+        width: 100%;
+    }
+
+    .course_sidebar_dash_text, .course_sidebar_create_text {
+        font-size: 14px !important;
+    }
+
+    .table tbody {
+        font-size: 14px !important;
+    }
+
+    .user_details_pop {
+        width: 250px;
+    }
+
+    .course_right_side_header_box {
+        height: 60px;
+    }
+}
+
+@media (min-width: 768px) {
+    .course_sidebar_section {
+        display: block;
+    }
+
+    .hamber_container {
+        display: none;
+    }
+
+    .user_details_pop {
+        width: 301px;
+    }
+
+    .course_right_side_header_box {
+        height: 75px;
+    }
+}

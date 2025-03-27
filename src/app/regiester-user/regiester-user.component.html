@@ -1,0 +1,43 @@
+<div class="register_container container p-0">
+    <div class="row g-0 register_form_container">
+        <h2>Register And Get Start</h2>
+        <form class="register_form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3 label_container">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" formControlName="name" placeholder="Enter your name" [ngClass]="{'is-invalid': registerForm.get('name')?.invalid && registerForm.get('name')?.touched}">
+                <div *ngIf="registerForm.get('name')?.invalid && registerForm.get('name')?.touched" class="text-danger">
+                    Name is required
+                </div>
+            </div>
+            <div class="mb-3 label_container">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter your email" [ngClass]="{'is-invalid': registerForm.get('email')?.invalid && registerForm.get('email')?.touched}">
+                <div *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched" class="text-danger">
+                    Email is required
+                </div>
+            </div>
+            <div class="mb-3 label_container">
+                <label for="email" class="form-label">Profile Image</label>
+                <input type="file" class="form-control" (change)="onFileSelected($event)" accept="image/*" [ngClass]="{'is-invalid': registerForm.get('email')?.invalid && registerForm.get('email')?.touched}">
+                <div *ngIf="registerForm.get('profileImage')?.invalid && registerForm.get('profileImage')?.touched">
+                    Image is required.
+                </div>
+            </div>
+            <div class="mb-3 label_container">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter your password" autocomplete [ngClass]="{'is-invalid': registerForm.get('password')?.invalid && registerForm.get('password')?.touched}">
+                <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.touched || registerForm.get('password')?.touched)" class="text-danger">
+                    Password is required
+                </div>
+                <div *ngIf="registerForm.get('password')?.errors?.['minlength']  && registerForm.get('password')?.touched" class="text-danger">
+                    Password must be at least 6 characters.
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+         </form>
+
+         <div class="col-12">
+            <div class="login_here">If You Already Have Account <span routerLink="/login">Login Here</span></div>
+         </div>
+    </div>
+</div>

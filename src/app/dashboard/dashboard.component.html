@@ -1,0 +1,33 @@
+<div class="row g-0 mt-5">
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <thead class="table_header">
+              <tr>
+                <th scope="col" class="table_header_one">#</th>
+                <th scope="col" class="table_header_two">Classname</th>
+                <th scope="col" class="table_header_three">Subject</th>
+                <th scope="col" class="table_header_four">board</th>
+                <th scope="col" class="table_header_five">latitude</th>
+                <th scope="col" class="table_header_six">longitude</th>
+                <th scope="col" class="table_header_sevenr">UserId</th>
+              </tr>
+            </thead>
+            <tbody class="table_body">
+              <tr *ngFor="let course of allCoureseList; let i = index">
+                <th scope="row">{{i + 1}}</th>
+                <td>{{course?.className}}</td>
+                <td>{{course?.subject}}</td>
+                <td>{{course?.board}}</td>
+                <td>{{course?.latitude}}</td>
+                <td>{{course?.longitude}}</td>
+                <td>{{course?.createdBy}}</td>
+              </tr>
+              <tr *ngIf="loader">
+                <div class="d-flex justify-content-center">
+                  <div class="spinner-border" role="status"></div>
+                </div>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

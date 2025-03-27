@@ -1,0 +1,77 @@
+<div class="container-fluid p-0 layout_container_fluid_parent">
+    <div class="course_sidebar_section ">
+        <div class="course_sidebar_container">
+            <div class="course_sidebar_dash_text" routerLink="/course/dashboard" routerLinkActive="active">Dashboard</div>
+            <div class="course_sidebar_create_text" routerLink="/course/create-course" routerLinkActive="active">Create Course</div>
+        </div>
+    </div>
+
+    <div class="course_right_side_section">
+        <!-- header page -->
+        <div class="course_right_side_header_container">
+            <div class="course_right_side_header_box">
+                 <!-- hamber icon for responsive -->
+                <div class="hamber_container">
+                    <img src="assets/img/hamber_icon.svg" alt="" class="hamber_icon" (click)="toggleHamberMenu()">
+                    <div class="hamber_router_link" id="hamberRouterLinkParent">
+                        <div class="course_hamber_menu" routerLink="/course/dashboard" routerLinkActive="active" (click)="toggleHamberMenu()">Dashboard</div>
+                        <div class="course_hamber_menu" routerLink="/course/create-course" routerLinkActive="active" (click)="toggleHamberMenu()">Create Course</div>
+                    </div>
+                </div>
+                <div class="user_details">
+                    <img class="user_image" [src]="'http://localhost:3000/uploads/' + userDatas?.profileImage"  alt="" (click)="toggleUserDetailsPop()">
+
+                    <div class="user_details_pop" *ngIf="userDetailsPopup()">
+                        <img class="user_image_pop" [src]="'http://localhost:3000/uploads/' + userDatas?.profileImage"  alt="">
+                        <div class="user_details_pop_name"><span>Welcome.</span> {{userDatas?.name}}</div>
+                        <div class="user_details_pop_email">{{userDatas?.email}}</div>
+
+                        <div class="user_details_pop_buttons">
+                            <div class="user_details_pop_views_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Porfile</div>
+                            <div class="user_details_pop_sign_out_btn" (click)="signOut()">Sign Out</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--  body page-->
+        <div class="course_right_side_body_comtainer">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+
+
+<!-- Button trigger modal -->  
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Update Profile</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="update_profile_container">
+                <div class=" label_container">
+                    <label for="Name" class="form-label">Name</label>
+                    <input type="text" id="Name" class="form-control" placeholder="Name" [value]="userDatas?.name" [(ngModel)]="updateUserName">
+                </div>
+                <div class=" label_container">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" class="form-control" placeholder="Email" [value]="userDatas?.email" [(ngModel)]="updateUserEmail">
+                </div>
+                <div class=" label_container" style="position: relative;">
+                    <label for="file" class="form-label">Profile</label>
+                    <input type="file" id="file" class="form-control" placeholder="Profile Image" (change)="updateImage($event)" style="position: relative; color: #fff;">
+                    <span id="fileSpan" style="position: absolute; top: 40px; left: 120px;">{{userDatas?.profileImage}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Close</button>
+          <button type="button" class="btn btn-success" id="updateModel" (click)="updateProfile()">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>
