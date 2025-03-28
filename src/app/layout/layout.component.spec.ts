@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { TOAST_CONFIG, ToastrModule, ToastrService } from 'ngx-toastr';
 import { LayoutComponent } from './layout.component';
+import { AuthService } from '../services/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { of } from 'rxjs';
 
 describe('LayoutComponent', () => {
   let component: LayoutComponent;
@@ -8,7 +12,8 @@ describe('LayoutComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LayoutComponent]
+      imports: [LayoutComponent, ToastrModule.forRoot()],
+      providers: [AuthService, Router, AuthService, provideHttpClient(), ToastrService,  { provide: ActivatedRoute, useValue: { params: of({ id: '123' })} }]
     })
     .compileComponents();
 
