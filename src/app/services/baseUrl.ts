@@ -5,5 +5,5 @@
 
 export const baseUrl = { 
     production: true,
-    baseUrl : 'http://real-time-chat-room-six.vercel.app/'
+    baseUrl : 'https://real-time-chat-room-six.vercel.app/'
 };
