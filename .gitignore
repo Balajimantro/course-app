@@ -3,6 +3,7 @@
 node_modules/
 backend/node_modules/
 backend/public/
+backend/.env
 public/
 package-lock.json
 backend/package-lock.json
