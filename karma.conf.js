@@ -27,7 +27,7 @@ module.exports = function (config) {
         suppressAll: true // removes the duplicated traces
       },
       coverageReporter: {
-        dir: require('path').join(__dirname, './coverage/TF_Pre_Launch'),
+        dir: require('path').join(__dirname, './coverage/course-app'),
         subdir: '.',
         reporters: [
           { type: 'html' },
