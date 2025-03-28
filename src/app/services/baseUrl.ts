@@ -5,5 +5,5 @@
 
 export const baseUrl = { 
     production: true,
-    baseUrl : 'https://course-app-silk.vercel.app/'
+    baseUrl : 'https://course-app-khaki-mu.vercel.app/'
 };
