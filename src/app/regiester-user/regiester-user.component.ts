@@ -80,7 +80,6 @@ export class RegiesterUserComponent implements OnInit {
           }, 2000)
         },
         (error) => {
-          console.error('Error registering user:', error);
           this.toastr.error(error.error, 'Register failed', {
             timeOut: 3000,
           });
