@@ -8,8 +8,8 @@ const auth = require("./src/router/auth.router");
 const course = require("./src/router/course.router")
 
 const allowedOrigins = [
-    'http://localhost:4200', 
-    // 'https://balajicourse.netlify.app',
+    // 'http://localhost:4200', 
+    'https://balajicourse.netlify.app',
   ];
 
 dotenv.config();
