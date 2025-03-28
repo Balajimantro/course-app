@@ -57,7 +57,6 @@
 
 .course_right_side_header_box {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     background-color: #fff;
     border-bottom: 1px solid #EEEEEE; 
@@ -207,6 +206,7 @@
 
     .course_right_side_header_box {
         height: 60px;
+        justify-content: space-between;
     }
 }
 
@@ -225,5 +225,9 @@
 
     .course_right_side_header_box {
         height: 75px;
+    }
+
+    .course_right_side_header_box {
+        justify-content: flex-end;
     }
 }

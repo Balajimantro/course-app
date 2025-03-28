@@ -69,7 +69,6 @@ export class CreateCourseComponent implements OnInit {
   onCreateCourse() {
     if(this.createCoureceForm.valid) {
       this.cs.createCourse(this.createCoureceForm.value).subscribe((res: any) => {
-        console.log('Response:', res);  
         this.toastr.success('Course Created Successfully'), {
           timeOut: 1000,
           progressBar: true,
@@ -86,7 +85,6 @@ export class CreateCourseComponent implements OnInit {
 
   getCouresesById() {
     this.cs.getCourseById().subscribe((res: any) => {
-      console.log(res)
       this.allCoursesByUser = res
     })
   }
@@ -118,7 +116,6 @@ export class CreateCourseComponent implements OnInit {
       if(this.createCoureceForm.valid) {
         this.cs.updateCourse(this.courseId, this.createCoureceForm.value).subscribe((res: any) => {
           this.courseId = '';
-          console.log('Response:', res);  
           this.toastr.success('Course Updated Successfully'), {
             timeOut: 1000,
             progressBar: true,
@@ -138,9 +135,7 @@ export class CreateCourseComponent implements OnInit {
   }
 
   deleteCourse(index: number) {
-    console.log(this.allCoursesByUser[index]._id)
     this.cs.deleteCourse(this.allCoursesByUser[index]._id).subscribe((res: any) => {
-      console.log('Response:', res);  
       this.toastr.success('Course Deleted Successfully'), {
         timeOut: 1000,
         progressBar: true,

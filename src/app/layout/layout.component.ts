@@ -61,7 +61,6 @@ export class LayoutComponent implements OnInit {
     } else {
       const model = document.getElementById('updateModel')
       if(model) {
-        console.log('click')
         model.click()
       }
     }

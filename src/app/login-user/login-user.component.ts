@@ -30,9 +30,7 @@ export class LoginUserComponent implements OnInit {
 
   onLogin() {
     if(this.loginForm.valid) {
-    console.log('Form submitted:', this.loginForm.value);
     this.authService.loginUser(this.loginForm.value).subscribe((res: any) => {
-      console.log('Response:', res);  
       localStorage.setItem('courseAuthToken', res.token);
       this.toastr.success('Login Successfully');
       this.router.navigateByUrl('/course/dashboard')
