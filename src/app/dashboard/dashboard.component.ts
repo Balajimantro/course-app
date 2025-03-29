@@ -36,5 +36,6 @@ export class DashboardComponent implements OnInit {
         this.allCoureseList = data
       ));
     });
+
   }
 }
