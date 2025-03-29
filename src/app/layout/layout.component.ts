@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Modal } from 'bootstrap';
+import { environment } from '../../environment/environment';
 
 @Component({
   selector: 'app-layout',
@@ -13,13 +14,20 @@ import { Modal } from 'bootstrap';
 })
 export class LayoutComponent implements OnInit {
   userDatas: any;
-  userDetailsPopup = signal(false)
+  userDetailsPopup = signal(false);
+  imageHostUrl: string = ''
   constructor( private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.authService.getUserById().subscribe((res) => {
       this.userDatas = res
     })
+
+    this.imageHostUrl = 'http://localhost:3000/uploads/'
+    if(environment.production === true) {
+      this.imageHostUrl = 'https://course-app-z7ce.onrender.com/uploads/'  
+    }
+
   }
 
   toggleUserDetailsPop() {
