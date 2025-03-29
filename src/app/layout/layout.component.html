@@ -19,15 +19,15 @@
                     </div>
                 </div>
                 <div class="user_details">
-                    <img class="user_image" [src]="'http://localhost:3000/uploads/' + userDatas?.profileImage"  alt="" (click)="toggleUserDetailsPop()">
+                    <img class="user_image" [src]="imageHostUrl+userDatas?.profileImage"  alt="" (click)="toggleUserDetailsPop()">
 
                     <div class="user_details_pop" *ngIf="userDetailsPopup()">
-                        <img class="user_image_pop" [src]="'http://localhost:3000/uploads/' + userDatas?.profileImage"  alt="">
+                        <img class="user_image_pop" [src]="imageHostUrl+userDatas?.profileImage"  alt="">
                         <div class="user_details_pop_name"><span>Welcome.</span> {{userDatas?.name}}</div>
                         <div class="user_details_pop_email">{{userDatas?.email}}</div>
 
                         <div class="user_details_pop_buttons">
-                            <div class="user_details_pop_views_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Porfile</div>
+                            <div class="user_details_pop_views_btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">View Profile</div>
                             <div class="user_details_pop_sign_out_btn" (click)="signOut()">Sign Out</div>
                         </div>
                     </div>
