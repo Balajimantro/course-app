@@ -27,6 +27,10 @@
                   <div class="spinner-border" role="status"></div>
                 </div>
               </tr>
+
+              <tr *ngIf="allCoureseList.length === 0 && !loader" class="text-center">
+                No course found
+              </tr>
             </tbody>
         </table>
     </div>
